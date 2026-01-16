@@ -3,11 +3,25 @@ import random
 import json
 import string
 
+import yaml
+
+# load a YAML file
+with open("config.yaml", "r") as file:
+    config = yaml.safe_load(file)
+
+print("Full YAML:")
+print(config)
+
+# access a specific value
+print("Value of base_url:", config["base_url"])
+
+
 #base url:
-base_url = "https://gorest.co.in"
+base_url = "https://semantic-brandea-banao-dc049ed0.koyeb.app"
+
 
 #Auth token:
-auth_token = "Bearer <TokenID>"
+auth_token = "Bearer 56f2a30cb657e95d51b9e8c07d081053f4c334ff1c567d5f04f40e03b3e12f92"
 
 #get random email id:
 def generate_random_email():
@@ -37,7 +51,7 @@ def post_request():
     print("post url: " + url)
     headers = {"Authorization": auth_token}
     data = {
-        "name": "Naveen Automation",
+        "name": "Ayush Automation",
         "email": generate_random_email(),
         "gender": "male",
         "status": "active"
@@ -62,7 +76,7 @@ def put_request(user_id):
     print("PUT url: " + url)
     headers = {"Authorization": auth_token}
     data = {
-        "name": "Naveen Automation Labs",
+        "name": "Ayush Automation Labs",
         "email": generate_random_email(),
         "gender": "male",
         "status": "inactive"
